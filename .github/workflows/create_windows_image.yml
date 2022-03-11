@@ -1,0 +1,27 @@
+name: Windows image build
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Manual'     
+        required: false
+        default: ''  
+
+jobs:
+  build-image:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and push console
+        working-directory: .
+        run: |
+          docker login -u $env:USER -p $env:TOKEN
+          docker-compose build docker-generate-DockerFiles-windows
+          docker image push ndesassis/win:pygst-2022
+          docker logout
+        env:
+          USER: ${{ secrets.DOCKER_HUB_USERNAME }}
+          TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+
