@@ -17,11 +17,11 @@ jobs:
         working-directory: .
         run: |
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
-          docker-compose build windows
-          docker image push ndesassis/win:pygst-2022
           docker logout
         env:
           USER: ${{ secrets.DOCKER_HUB_USERNAME }}
           TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+#docker-compose build windows
+#docker image push ndesassis/win:pygst-2022
 
