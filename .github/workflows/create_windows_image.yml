@@ -18,6 +18,8 @@ jobs:
         run: |
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
           docker build . --file DockerFiles/windows/Dockerfile --tag my-image-name:$(date +%s)
+          docker image my-image-name:$(date +%s)
+          docker push ndesassis/my-image-name:$(date +%s)
           docker logout
         env:
           USER: ${{ secrets.DOCKER_HUB_USERNAME }}
