@@ -16,7 +16,7 @@ jobs:
       - name: Build and push console
         working-directory: .
         run: |
-          docker login -u $env:USER -p $env:TOKEN
+          docker login -u ${{env.USER}} -p ${{env.TOKEN}}
           docker-compose build windows
           docker image push ndesassis/win:pygst-2022
           docker logout
