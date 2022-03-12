@@ -18,8 +18,6 @@ RUN apt-get install -y libffi-dev #for ctype in python installation
 
 RUN apt-get install -y libssl-dev #vérifier si nécessaire
 
-RUN apt-get install -y openssl-dev #vérifier si nécessaire
-
 
 RUN apt-get install -y perl &&\
     wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz &&\
@@ -48,6 +46,7 @@ RUN wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz &&\
     make -j 8 &&\
     make install &&\
     export PATH=/opt/python/py36/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
+    python3 -m pip install --upgrade pip &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     rm ../Python-3.6.15.tgz
