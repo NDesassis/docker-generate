@@ -102,7 +102,7 @@ RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.
     cd swig-4.0.2 &&\
     ./configure --without-pcre &&\
     make -j 8 &&\
-    make install &&\
+    make install &&
 
 RUN apt-get install libboost-dev
 
