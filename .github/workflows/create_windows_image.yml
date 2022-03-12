@@ -16,9 +16,10 @@ jobs:
       - name: Build and push console
         working-directory: .
         run: |
+	  docker build . --file DockerFiles/windows/Dockerfile --tag ndesassis/test:2022
+          docker commit ndesassis/test:2022 ndesassis/test:2022
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
-          docker build . --file DockerFiles/windows/Dockerfile --tag ndesassis/test:$(date +%s)
-          docker push ndesassis/test:$(date +%s)
+          docker push ndesassis/test:2022
           docker logout
         env:
           USER: ${{ secrets.DOCKER_HUB_USERNAME }}
@@ -26,4 +27,4 @@ jobs:
 
 #docker-compose build windows
 #docker image push ndesassis/win:pygst-2022
-
+#$(date +%s)
