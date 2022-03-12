@@ -16,7 +16,7 @@ jobs:
       - name: Build and push console
         working-directory: .
         run: |
-          brew install --cask docker docker-machine
+          brew install --cask docker
       - run: |
           docker build -t ndesassis/test_macos-11 -f DockerFiles/macos-11/Dockerfile .
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
