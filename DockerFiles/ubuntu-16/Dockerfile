@@ -98,7 +98,7 @@ RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     rm ../Python-3.9.10.tgz
 
 
-RUN apt-get install git
+RUN apt-get install -y git
 
 RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.tar.gz &&\
     tar -xvf swig-4.0.2.tar.gz &&\
@@ -107,9 +107,9 @@ RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.
     make -j 8 &&\
     make install &&
 
-RUN apt-get install libboost-dev
+RUN apt-get install -y libboost-dev
 
-RUN apt-get install doxygen
+RUN apt-get install -y doxygen
 
 RUN git clone https://github.com/Kitware/CMake/ &&\
     cd CMake &&\
