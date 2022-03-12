@@ -28,6 +28,19 @@ RUN apt-get install -y perl &&\
     make install &&\
     rm ../openssl-1.1.1g.tar.gz
 
+
+
+RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
+    tar xvf Python-3.10.2.tgz &&\
+    cd Python-3.10.2 &&\
+    ./configure --prefix=/opt/python/py310/ &&\
+    make -j 8 &&\
+    make install &&\
+    export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
+    python3 -m pip install twine &&\
+    python3 -m pip install wheel &&\
+    rm ../Python-3.10.2.tgz
+
 RUN wget https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz &&\
     tar xvf Python-3.5.10.tgz &&\
     cd Python-3.5.10 &&\
@@ -84,17 +97,6 @@ RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     python3 -m pip install wheel &&\
     rm ../Python-3.9.10.tgz
 
-
-RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
-    tar xvf Python-3.10.2.tgz &&\
-    cd Python-3.10.2 &&\
-    ./configure --prefix=/opt/python/py310/ &&\
-    make -j 8 &&\
-    make install &&\
-    export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
-    python3 -m pip install twine &&\
-    python3 -m pip install wheel &&\
-    rm ../Python-3.10.2.tgz
 
 RUN apt-get install git
 
