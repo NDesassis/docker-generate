@@ -1,4 +1,4 @@
-name: Windows image build
+name: ubuntu16 image build
 
 on:
   workflow_dispatch:
@@ -10,20 +10,20 @@ on:
 
 jobs:
   build-image:
-    runs-on: windows-2022
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build and push console
         working-directory: .
         run: |
-          docker build . --file DockerFiles/windows/Dockerfile --tag test:2022
-          docker image
+          docker build . --file DockerFiles/ubuntu16/Dockerfile --tag test_ubuntu16:2022
+          docker images
           docker ps -a
-          docker commit test:2022 ndesassis/test:2022
-          docker image
+          docker commit test_ubuntu16:2022 ndesassis/test_ubuntu16:2022
+          docker images
           docker ps -a
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
-          docker push ndesassis/test:2022
+          docker push ndesassis/test_ubuntu16:2022
           docker logout
         env:
           USER: ${{ secrets.DOCKER_HUB_USERNAME }}

@@ -1,0 +1,34 @@
+name: Windows image build
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Manual'     
+        required: false
+        default: ''  
+
+jobs:
+  build-image:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and push console
+        working-directory: .
+        run: |
+          docker build . --file DockerFiles/windows-2022/Dockerfile --tag test:2022
+          docker image
+          docker ps -a
+          docker commit test:2022 ndesassis/test:2022
+          docker image
+          docker ps -a
+          docker login -u ${{env.USER}} -p ${{env.TOKEN}}
+          docker push ndesassis/test:2022
+          docker logout
+        env:
+          USER: ${{ secrets.DOCKER_HUB_USERNAME }}
+          TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+#docker-compose build windows
+#docker image push ndesassis/win:pygst-2022
+#$(date +%s)
