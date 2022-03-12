@@ -16,7 +16,7 @@ jobs:
       - name: Build and push console
         working-directory: .
         run: |
-          setenv PATH DockerFiles/ubuntu-16
+          export PATH=DockerFiles/ubuntu-16
           docker build -t ndesassis/test_ubuntu-16
           docker ps -a
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
