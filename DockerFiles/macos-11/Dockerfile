@@ -1,3 +1,3 @@
-FROM     mcr.microsoft.com/windows/server:ltsc2022
+FROM     sickcodes/docker-osx
 
-
+RUN ls
