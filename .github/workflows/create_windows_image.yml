@@ -17,7 +17,7 @@ jobs:
         working-directory: .
         run: |
           docker build . --file DockerFiles/windows/Dockerfile --tag test:2022
-	  docker image
+          docker image
           docker ps -a
           docker commit test:2022 ndesassis/test:2022
           docker image
