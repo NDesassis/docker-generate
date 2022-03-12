@@ -10,7 +10,7 @@ RUN mkdir hdf5
 RUN curl --progress-bar --location --output download.zip "https://www.hdfgroup.org/#package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723"
 #RUN powershell -Command choco install -y 7zip.install
 #RUN powershell -Command dir
-RUN 7z e download.zip .
+RUN powershell Expand-Archive -Path Draft download.zip -DestinationPath .
 
 
 
