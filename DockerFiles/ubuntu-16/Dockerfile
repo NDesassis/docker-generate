@@ -19,6 +19,24 @@ RUN apt-get install -y libffi-dev #for ctype in python installation
 RUN apt-get install -y libssl-dev #vérifier si nécessaire
 
 
+
+
+
+RUN apt-get install -y git
+
+RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.tar.gz &&\
+    tar -xvf swig-4.0.2.tar.gz &&\
+    cd swig-4.0.2 &&\
+    ./configure --without-pcre &&\
+    make -j 8 &&\
+    make install &&\
+    rm ../swig-4.0.2.tar.gz
+
+RUN apt-get install -y libboost-dev
+
+RUN apt-get install -y doxygen
+
+
 RUN apt-get install -y perl &&\
     wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz &&\
     tar xvf openssl-1.1.1g.tar.gz &&\
@@ -29,17 +47,6 @@ RUN apt-get install -y perl &&\
     rm ../openssl-1.1.1g.tar.gz
 
 
-
-RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
-    tar xvf Python-3.10.2.tgz &&\
-    cd Python-3.10.2 &&\
-    ./configure --prefix=/opt/python/py310/ --with-openssl=/usr/openssl --with-openssl-rpath=/usr/openssl/lib&&\
-    make -j 8 &&\
-    make install &&\
-    export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
-    python3 -m pip install twine &&\
-    python3 -m pip install wheel &&\
-    rm ../Python-3.10.2.tgz
 
 RUN wget https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz &&\
     tar xvf Python-3.5.10.tgz &&\
@@ -98,18 +105,20 @@ RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     rm ../Python-3.9.10.tgz
 
 
-RUN apt-get install -y git
-
-RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.tar.gz &&\
-    tar -xvf swig-4.0.2.tar.gz &&\
-    cd swig-4.0.2 &&\
-    ./configure --without-pcre &&\
+RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
+    tar xvf Python-3.10.2.tgz &&\
+    cd Python-3.10.2 &&\
+    ./configure --prefix=/opt/python/py310/ --with-openssl=/usr/openssl --with-openssl-rpath=/usr/openssl/lib&&\
     make -j 8 &&\
-    make install &&
+    make install &&\
+    export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
+    python3 -m pip install twine &&\
+    python3 -m pip install wheel &&\
+    rm ../Python-3.10.2.tgz
 
-RUN apt-get install -y libboost-dev
 
-RUN apt-get install -y doxygen
+
+
 
 RUN git clone https://github.com/Kitware/CMake/ &&\
     cd CMake &&\
