@@ -7,9 +7,9 @@ RUN powershell -Command \
     choco feature disable --name showDownloadProgress
 
 RUN mkdir hdf5
-RUN curl --progress-bar --location --output hdf5/download.zip "https://www.hdfgroup.org/#package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723"
+RUN curl --progress-bar --location --output hdf5\download.zip "https://www.hdfgroup.org/#package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723"
 RUN powershell -Command choco install -y 7zip.install
-RUN powershell -Command 7z x hdf5/download.zip
+RUN powershell -Command 7z x hdf5\download.zip
 RUN powershell -Command choco install python3 --version=3.7.3
 RUN cd CMake-hdf5-1-12-1
 RUN mkdir build
