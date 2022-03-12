@@ -18,3 +18,15 @@ RUN apt-get install -y libffi-dev #for ctype in python installation
 
 RUN apt-get install -y libssl-dev #vérifier si nécessaire
 
+
+RUN apt-get install -y perl 
+
+RUN cd \
+    wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz \
+    tar xvf openssl-1.1.1g.tar.gz \
+    cd openssl-1.1.1g \
+    ./config --prefix=/usr/openssl --openssldir=/usr/openssl no-ssl2 \
+    make -j 8\
+    make install\
+    rm openssl-1.1.1g.tar.gz
+
