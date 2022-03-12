@@ -28,5 +28,5 @@ RUN cd &&\
     ./config --prefix=/usr/openssl --openssldir=/usr/openssl no-ssl2 &&\
     make -j 8 &&\
     make install &&\
-    rm openssl-1.1.1g.tar.gz
+    rm ../openssl-1.1.1g.tar.gz
 

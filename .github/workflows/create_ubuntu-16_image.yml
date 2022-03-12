@@ -1,4 +1,4 @@
-name: ubuntu16 image build
+name: ubuntu-16 image build
 
 on:
   workflow_dispatch:
@@ -16,14 +16,10 @@ jobs:
       - name: Build and push console
         working-directory: .
         run: |
-          docker build . --file DockerFiles/ubuntu-16/Dockerfile --tag test_ubuntu-16:2022
-          docker images
-          docker ps -a
-          docker commit test_ubuntu-16:2022 ndesassis/test_ubuntu-16:2022
-          docker images
+          docker build -t ndesassis/test_ubuntu-16 --file DockerFiles/ubuntu-16/Dockerfile 
           docker ps -a
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
-          docker push ndesassis/test_ubuntu-16:2022
+          docker push ndesassis/test_ubuntu-16
           docker logout
         env:
           USER: ${{ secrets.DOCKER_HUB_USERNAME }}
