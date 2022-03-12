@@ -33,7 +33,7 @@ RUN apt-get install -y perl &&\
 RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
     tar xvf Python-3.10.2.tgz &&\
     cd Python-3.10.2 &&\
-    ./configure --prefix=/opt/python/py310/ &&\
+    ./configure --prefix=/opt/python/py310/ --with-openssl-rpath=/usr/openssl/lib&&\
     make -j 8 &&\
     make install &&\
     export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
