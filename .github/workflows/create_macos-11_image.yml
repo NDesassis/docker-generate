@@ -14,8 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: docker-practice/actions-setup-docker@master
-      - name: Build and push console
-        working-directory: .
       - run : |
           docker build -t ndesassis/test_macos-11 -f DockerFiles/macos-11/Dockerfile .
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
