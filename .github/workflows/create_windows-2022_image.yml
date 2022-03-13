@@ -16,7 +16,7 @@ jobs:
       - name: Build and push console
         working-directory: .
         run: |
-          docker build -t ndesassis/test_windows-2022 -f DockerFiles/windows-2022/Dockerfile --user ContainerAdministrator .
+          docker build -t ndesassis/test_windows-2022 -f DockerFiles/windows-2022/Dockerfile .
           docker login -u ${{env.USER}} -p ${{env.TOKEN}}
           docker push ndesassis/test_windows-2022
           docker logout
@@ -24,6 +24,5 @@ jobs:
           USER: ${{ secrets.DOCKER_HUB_USERNAME }}
           TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-#docker-compose build windows
-#docker image push ndesassis/win:pygst-2022
+
 #$(date +%s)

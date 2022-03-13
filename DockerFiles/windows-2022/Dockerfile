@@ -1,5 +1,7 @@
 FROM     mcr.microsoft.com/windows/nanoserver:ltsc2022
 
+USER ContainerAdministrator
+
 #ENV chocolateyUseWindowsCompression false
 
 #RUN powershell -Command \
