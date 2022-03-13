@@ -23,7 +23,7 @@ SHELL ["cmd", "/S", "/C"]
 #RUN powershell.exe -ExecutionPolicy RemoteSigned -scope CurrentUser\ 
 #  iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
 
-RUN powershell.exe Set-ExecutionPolicy RemoteSigned -scope CurrentUser \
+RUN powershell.exe Set-ExecutionPolicy RemoteSigned -scope CurrentUser ;\
     Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 #  scoop install python git 7z
 
