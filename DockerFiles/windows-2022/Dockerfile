@@ -9,9 +9,10 @@ USER ContainerAdministrator
 #    choco feature disable --name showDownloadProgress
 
 RUN mkdir hdf5
-RUN curl --progress-bar --location --output download.zip "https://www.hdfgroup.org/#package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723"
+RUN curl --progress-bar -o download.zip "https://www.hdfgroup.org/#package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723"
+    Tar.exe -xf download.zip
 
-RUN Tar.exe -xf download.zip
+
 #RUN powershell -Command choco install -y 7zip.install
 #RUN powershell -Command dir
 #RUN powershell -Command Expand-Archive -Path download.zip -DestinationPath hdf5
