@@ -10,7 +10,7 @@ USER ContainerAdministrator
 
 RUN mkdir hdf5
 RUN curl --progress-bar -o download.zip "https://www.hdfgroup.org/#package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723" &&\
-    Tar.exe -xf download.zip
+    tar -xf download.zip
 
 
 #RUN powershell -Command choco install -y 7zip.install
