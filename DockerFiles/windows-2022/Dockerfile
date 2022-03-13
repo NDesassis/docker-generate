@@ -1,3 +1,4 @@
+escape=`
 FROM mcr.microsoft.com/powershell
 
 #USER ContainerAdministrator
