@@ -19,7 +19,7 @@ RUN C:\\Temp\\vs_buildtools.exe &&\
     --installChannelUri C:\\Temp\\VisualStudio.chman &&\
     --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended &&\
     --add Microsoft.Component.MSBuild &&\
-    || IF "%ERRORLEVEL%"=="3010" EXIT 0
+|| IF "%ERRORLEVEL%"=="3010" EXIT 0
 
 
 RUN powershell.exe -ExecutionPolicy RemoteSigned &&\
