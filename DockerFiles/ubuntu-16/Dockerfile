@@ -18,10 +18,6 @@ RUN apt-get install -y libffi-dev #for ctype in python installation
 
 RUN apt-get install -y libssl-dev #vérifier si nécessaire
 
-
-
-
-
 RUN apt-get install -y git
 
 RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.tar.gz &&\
