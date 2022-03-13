@@ -1,12 +1,13 @@
 #FROM     mcr.microsoft.com/windows/nanoserver:ltsc2022
+
 FROM mcr.microsoft.com/powershell
-USER ContainerAdministrator
+#USER ContainerAdministrator
 
-#ENV chocolateyUseWindowsCompression false
+ENV chocolateyUseWindowsCompression false
 
-#RUN powershell -Command \
-#    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
-#    choco feature disable --name showDownloadProgress
+RUN powershell -Command \
+    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
+    choco feature disable --name showDownloadProgress
 
 RUN mkdir boost &&\
     curl --progress-bar -o download.tar.bz2 https://sourceforge.net/projects/boost/files/boost/1.72.0/boost_1_72_0.tar.bz2/download &&\
