@@ -2,6 +2,8 @@ FROM     sickcodes/docker-osx
 
 RUN mkdir hdf5
 RUN curl --progress-bar --location --output hdf5/download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" 
+RUN brew update
+RUN brew install p7zip
 RUN 7z x hdf5/download.tar.gz
 RUN cd hdf5 &&\
     cd CMake-hdf5-1-12-1 &&\
