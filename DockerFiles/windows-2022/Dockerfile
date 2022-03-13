@@ -20,9 +20,10 @@ SHELL ["cmd", "/S", "/C"]
 
 ####################################################################################
 
-RUN powershell.exe -ExecutionPolicy RemoteSigned -RunAsAdmin\
-  iex (new-object net.webclient).downloadstring('https://get.scoop.sh'); \
-  scoop install python git 7z
+RUN powershell.exe -ExecutionPolicy RemoteSigned \
+  iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
+
+#  scoop install python git 7z
 
 #RUN scoop install python@3.9.2
 
