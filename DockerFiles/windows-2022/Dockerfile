@@ -1,29 +1,27 @@
-#FROM     mcr.microsoft.com/windows/nanoserver:ltsc2022
-# escape=`
 FROM mcr.microsoft.com/powershell
+
 #USER ContainerAdministrator
 
 SHELL ["cmd", "/S", "/C"]
 
-RUN curl -SL --output vs_buildtools.exe https://aka.ms/vs/17/release/vs_buildtools.exe &&\
-    && (start /w vs_buildtools.exe --quiet --wait --norestart --nocache &&\
-        --installPath "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools" &&\
-        --add Microsoft.VisualStudio.Workload.AzureBuildTools &&\
-        --remove Microsoft.VisualStudio.Component.Windows10SDK.10240 &&\
-        --remove Microsoft.VisualStudio.Component.Windows10SDK.10586 &&\
-        --remove Microsoft.VisualStudio.Component.Windows10SDK.14393 &&\
-        --remove Microsoft.VisualStudio.Component.Windows81SDK &&\
-        || IF "%ERRORLEVEL%"=="3010" EXIT 0) &&\
-    && del /q vs_buildtools.exe
-
-# Define the entry point for the docker container.
-# This entry point starts the developer command prompt and launches the PowerShell shell.
-ENTRYPOINT ["C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
+ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\Temp\vs_buildtools.exe
+ADD https://aka.ms/vs/16/release/channel C:\Temp\VisualStudio.chman
+RUN C:\Temp\vs_buildtools.exe `
+    --quiet --wait --norestart --nocache `
+    --installPath C:\BuildTools `
+    --channelUri C:\Temp\VisualStudio.chman `
+    --installChannelUri C:\Temp\VisualStudio.chman `
+    --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended `
+    --add Microsoft.Component.MSBuild `
+ || IF "%ERRORLEVEL%"=="3010" EXIT 0EXIT 0
 
 
+RUN powershell.exe -ExecutionPolicy RemoteSigned `
+  iex (new-object net.webclient).downloadstring('https://get.scoop.sh'); `
+  scoop install python git
 
-
-
+ENTRYPOINT C:\BuildTools\Common7\Tools\VsDevCmd.bat &&
+CMD ["powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
 
 
 
@@ -34,8 +32,8 @@ ENTRYPOINT ["C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\
 #ENV chocolateyUseWindowsCompression false
 
 #RUN powershell -Command \
-    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
-    choco feature disable --name showDownloadProgress
+#    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
+#    choco feature disable --name showDownloadProgress
 
 
 
