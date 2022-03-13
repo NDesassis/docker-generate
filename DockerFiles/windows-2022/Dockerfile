@@ -1,7 +1,7 @@
 #FROM mcr.microsoft.com/powershell
 FROM ndesassis/test_windows-2022
 #USER ContainerAdministrator
-
+USER ContainerUser
 SHELL ["cmd", "/S", "/C"]
 
 ###################################################################################################
@@ -20,12 +20,11 @@ SHELL ["cmd", "/S", "/C"]
 
 ####################################################################################
 
-#RUN powershell.exe -ExecutionPolicy RemoteSigned -scope CurrentUser\ 
-#  iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
+RUN powershell.exe -ExecutionPolicy RemoteSigned -scope CurrentUser\ 
+   iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
 
-RUN powershell.exe Set-ExecutionPolicy Unrestricted ;\
-    Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-#  scoop install python git 7z
+
+RUN scoop install python git 7z
 
 #RUN scoop install python@3.9.2
 
