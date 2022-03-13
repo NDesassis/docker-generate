@@ -1,5 +1,5 @@
 #FROM     mcr.microsoft.com/windows/nanoserver:ltsc2022
-
+# escape=`
 FROM mcr.microsoft.com/powershell
 #USER ContainerAdministrator
 
