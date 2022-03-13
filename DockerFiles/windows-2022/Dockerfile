@@ -8,7 +8,7 @@ USER ContainerAdministrator
 #    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
 #    choco feature disable --name showDownloadProgress
 
-RUN mkdir boost
+RUN mkdir boost &&\
     curl --progress-bar -o download.tar.bz2 https://sourceforge.net/projects/boost/files/boost/1.72.0/boost_1_72_0.tar.bz2/download &&\
     tar -xf download.tar.bz2 
 
