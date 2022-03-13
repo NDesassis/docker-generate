@@ -20,7 +20,7 @@ SHELL ["cmd", "/S", "/C"]
 
 ####################################################################################
 
-RUN powershell.exe -ExecutionPolicy RemoteSigned Bypass -Scope CurrentUser\
+RUN powershell.exe -ExecutionPolicy Bypass -Scope Process RemoteSigned\
   iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
 
 #  scoop install python git 7z
