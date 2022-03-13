@@ -7,8 +7,8 @@ SHELL ["cmd", "/S", "/C"]
 
 RUN dir
 RUN mkdir Temp
-ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\Temp\vs_buildtools.exe
-ADD https://aka.ms/vs/16/release/channel C:\Temp\VisualStudio.chman
+ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\\Temp\\vs_buildtools.exe
+ADD https://aka.ms/vs/16/release/channel C:\\Temp\\VisualStudio.chman
 RUN C:\Temp\vs_buildtools.exe &&\
     --quiet --wait --norestart --nocache &&\
     --installPath C:\BuildTools &&\
@@ -16,7 +16,7 @@ RUN C:\Temp\vs_buildtools.exe &&\
     --installChannelUri C:\Temp\VisualStudio.chman &&\
     --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended &&\
     --add Microsoft.Component.MSBuild &&\
- || IF "%ERRORLEVEL%"=="3010" EXIT 0EXIT 0
+ || IF "%ERRORLEVEL%"=="3010" EXIT 0
 
 
 RUN powershell.exe -ExecutionPolicy RemoteSigned &&\
