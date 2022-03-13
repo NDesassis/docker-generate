@@ -8,10 +8,16 @@ USER ContainerAdministrator
 #    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
 #    choco feature disable --name showDownloadProgress
 
+RUN mkdir boost
+    curl --progress-bar -o download.tar.bz2 https://sourceforge.net/projects/boost/files/boost/1.72.0/boost_1_72_0.tar.bz2/download &&\
+    tar -xf download.tar.bz2 
+
 RUN mkdir hdf5
 RUN curl --progress-bar -o download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" &&\
     dir &&\
     tar -xf download.tar.gz
+
+
 
 
 #RUN powershell -Command choco install -y 7zip.install
