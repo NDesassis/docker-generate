@@ -25,12 +25,12 @@ SHELL ["cmd", "/S", "/C"]
 #  scoop install python git
 
 
-RUN mkdir hdf5
-RUN curl --progress-bar -o hdf5\\download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" 
-RUN tar -xf hdf5\\download.tar.gz
-RUN cd hdf5\\CMake-hdf5-1-12-1 
-
-RUN cmake -G "Visual Studio 17 2022" -DHDF5_GENERATE_HEADERS:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=OFF -DDEFAULT_API_VERSION:STRING=v110 -DCMAKE_BUILD_TYPE:STRING=Release -DHDF5_BUILD_FORTRAN:BOOL=OFF -DHDF5_BUILD_CPP_LIB:BOOL=ON -DHDF5_BUILD_JAVA:BOOL=OFF -DCMAKE_INSTALL_PREFIX:PATH=C:C:\\Temp\\hdf5 -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=OFF -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=OFF -DBUILD_TESTING:BOOL=OFF -DHDF5_BUILD_TOOLS:BOOL=OFF ..\\hdf5-1-12-1 &&\
+#RUN mkdir hdf5
+#RUN curl --progress-bar -o hdf5\\download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" 
+RUN dir
+RUN cd hdf5 &&\
+    tar -xf hdf5\\download.tar.gz
+RUN cd hdf5\\CMake-hdf5-1-12-1 &&\cmake -G "Visual Studio 17 2022" -DHDF5_GENERATE_HEADERS:BOOL=OFF -DBUILD_SHARED_LIBS:BOOL=OFF -DDEFAULT_API_VERSION:STRING=v110 -DCMAKE_BUILD_TYPE:STRING=Release -DHDF5_BUILD_FORTRAN:BOOL=OFF -DHDF5_BUILD_CPP_LIB:BOOL=ON -DHDF5_BUILD_JAVA:BOOL=OFF -DCMAKE_INSTALL_PREFIX:PATH=C:C:\\Temp\\hdf5 -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=OFF -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=OFF -DBUILD_TESTING:BOOL=OFF -DHDF5_BUILD_TOOLS:BOOL=OFF ..\\hdf5-1-12-1 &&\
     cmake --build . --target all --config Release &&\
     cmake --build . --target install --config Release 
 
