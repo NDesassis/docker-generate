@@ -126,7 +126,7 @@ RUN git clone https://github.com/Kitware/CMake/ &&\
     make &&\ 
     make install &&\
     cd .. &&\
-    rm -rf *
+    rm -rf CMake
 
 
 RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/src/CMake-hdf5-1.12.1.tar.gz &&\
@@ -138,7 +138,7 @@ RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/sr
     make -j 8 &&\
     make install &&\
     cd ../.. &&\
-    rm -rf *
+    rm -rf CMake-hdf5-1.12.1
 
 
 
