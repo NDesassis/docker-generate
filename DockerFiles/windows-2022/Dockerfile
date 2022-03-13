@@ -1,6 +1,6 @@
 #FROM mcr.microsoft.com/powershell
 FROM ndesassis/test_windows-2022
-USER ContainerAdministrator
+#USER ContainerAdministrator
 
 SHELL ["cmd", "/S", "/C"]
 
