@@ -26,7 +26,7 @@ SHELL ["cmd", "/S", "/C"]
 
 
 #RUN mkdir hdf5
-#RUN curl --progress-bar -o hdf5\\download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" 
+#RUN curl --progress-bar -o .\\hdf5\\download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" 
 RUN dir
 RUN cd hdf5 &&\
     tar -xf hdf5\\download.tar.gz
