@@ -5,6 +5,8 @@ FROM mcr.microsoft.com/powershell
 
 SHELL ["cmd", "/S", "/C"]
 
+RUN dir
+RUN mkdir Temp
 ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\Temp\vs_buildtools.exe
 ADD https://aka.ms/vs/16/release/channel C:\Temp\VisualStudio.chman
 RUN C:\Temp\vs_buildtools.exe &&\
