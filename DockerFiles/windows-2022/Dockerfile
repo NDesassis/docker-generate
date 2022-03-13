@@ -20,7 +20,7 @@ SHELL ["cmd", "/S", "/C"]
 
 ####################################################################################
 
-RUN powershell.exe -ExecutionPolicy RemoteSigned -scope CurrentUser\ 
+RUN powershell.exe -ExecutionPolicy RemoteSigned \ 
    iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
 
 
