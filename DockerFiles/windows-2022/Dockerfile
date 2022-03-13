@@ -10,7 +10,8 @@ USER ContainerAdministrator
 
 RUN mkdir boost &&\
     curl --progress-bar -o download.tar.bz2 https://sourceforge.net/projects/boost/files/boost/1.72.0/boost_1_72_0.tar.bz2/download &&\
-    tar -xf download.tar.bz2 
+    tar jxvf download.tar.bz2 &&\
+    dir 
 
 RUN mkdir hdf5
 RUN curl --progress-bar -o download.tar.gz "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-tar-gz/?wpdmdl=15722" &&\
