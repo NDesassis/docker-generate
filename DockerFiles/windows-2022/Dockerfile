@@ -31,9 +31,10 @@ RUN scoop install 7zip
 #RUN scoop install python@3.9.2
 
 RUN mkdir hdf5
-RUN curl --progress-bar --location --output download.zip "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723" 
-RUN CMD 7z  x download.zip -y -alors
-RUN dir &&\
+RUN curl --progress-bar --location --output hdf5\\download.zip "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1-zip/?wpdmdl=15723" 
+RUN cd hdf5 &&\
+    CMD 7z  x download.zip -y -alors
+RUN cd hdf5 &&\
     cd CMake-hdf5-1-12-1 &&\
     mkdir build &&\
     cd build &&\
