@@ -24,9 +24,9 @@ RUN powershell.exe -ExecutionPolicy RemoteSigned \
    iex (new-object net.webclient).downloadstring('https://get.scoop.sh');
 
 
-RUN scoop 7zip
+RUN scoop install 7zip
 
-#install python git 
+#python git 
 
 #RUN scoop install python@3.9.2
 
