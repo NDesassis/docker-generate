@@ -30,7 +30,7 @@ RUN scoop install python git 7zip
 
 RUN mkdir hdf5
 RUN curl --progress-bar --location --output hdf5\\download.zip "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1.zip/?wpdmdl=15723" 
-RUN powershell.exe 7z -o=hdf5 x .\hdf5\download.zip
+RUN 7z -o=.\\hdf5 x .\hdf5\download.zip
 RUN cd hdf5 &&\
     cd CMake-hdf5-1-12-1 &&\
     mkdir build &&\
