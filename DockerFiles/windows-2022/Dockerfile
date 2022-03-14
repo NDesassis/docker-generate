@@ -32,7 +32,7 @@ RUN scoop install 7zip
 
 RUN mkdir hdf5
 RUN curl --progress-bar --location --output hdf5\\download.zip "https://www.hdfgroup.org/package/cmake-hdf5-1-12-1.zip/?wpdmdl=15723" 
-RUN CMD 7z -o.\\hdf5 x .\\hdf5\\download.zip
+RUN CMD 7z -o.\\hdf5 x .\\hdf5\\download.zip -y
 RUN cd hdf5 &&\
     dir&&\
     cd CMake-hdf5-1-12-1 &&\
