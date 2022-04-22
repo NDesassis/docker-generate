@@ -137,4 +137,20 @@ RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/sr
     rm -rf CMake-hdf5-1.12.1
 
 
+RUN apt-get install -y gfortran &&\
+    apt-get install -y libbz2-dev &&\
+    apt-get install -y liblzma-dev &&\
+    apt-get install -y libpcre++-dev &&\
+    apt-get install -y texlive-latex-base &&\
+    apt-get install -y libcurl4-openssl-dev &&\
+    export JAVA_HOME="/opt/java/jre/" &&\
+    export PATH=$PATH:$JAVA_HOME/bin &&\
+
+RUN wget https://cran.r-project.org/src/base/R-4/R-4.2.0.tar.gz
+    tar xvf R-4.2.0.tar.gz
+    cd R-4.2.0
+    ./configure --with-readline=no -with-x=no --with-pcre1
+    make 
+    make install
+
 
