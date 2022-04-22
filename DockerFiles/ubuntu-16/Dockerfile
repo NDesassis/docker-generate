@@ -26,7 +26,8 @@ RUN wget https://sourceforge.net/projects/swig/files/swig/swig-4.0.2/swig-4.0.2.
     ./configure --without-pcre &&\
     make -j 8 &&\
     make install &&\
-    rm ../swig-4.0.2.tar.gz
+    cd .. &&\
+    rm -rf swig-4.0.2*
 
 RUN apt-get install -y libboost-dev
 
@@ -40,8 +41,26 @@ RUN apt-get install -y perl &&\
     ./config --prefix=/usr/openssl --openssldir=/usr/openssl no-ssl2 &&\
     make -j 8 &&\
     make install &&\
-    rm ../openssl-1.1.1g.tar.gz
+    cd .. &&\
+    rm -rf openssl-1.1.1g*
 
+RUN apt-get install -y gfortran &&\
+    apt-get install -y libbz2-dev &&\
+    apt-get install -y liblzma-dev &&\
+    apt-get install -y libpcre++-dev &&\
+    apt-get install -y texlive-latex-base &&\
+    apt-get install -y libcurl4-openssl-dev &&\
+    export JAVA_HOME="/opt/java/jre/" &&\
+    export PATH=$PATH:$JAVA_HOME/bin
+
+RUN wget https://cran.r-project.org/src/base/R-4/R-4.2.0.tar.gz &&\
+    tar -xvf R-4.2.0.tar.gz &&\
+    cd R-4.2.0 &&\
+    ./configure --with-readline=no -with-x=no --with-pcre1 &&\
+    make &&\
+    make install &&\
+    cd .. &&\
+    rm -rf R-4.2.0*
 
 
 RUN wget https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz &&\
@@ -53,7 +72,8 @@ RUN wget https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz &&\
     export PATH=/opt/python/py35/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
-    rm ../Python-3.5.10.tgz
+    cd .. &&\
+    rm -rf Python-3.5.10*
 
 RUN wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz &&\
     tar xvf Python-3.6.15.tgz &&\
@@ -65,7 +85,8 @@ RUN wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz &&\
     python3 -m pip install --upgrade pip &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
-    rm ../Python-3.6.15.tgz
+    cd .. &&\
+    rm -rf Python-3.6.15*
 
 RUN wget https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tgz &&\
     tar xvf Python-3.7.12.tgz &&\
@@ -76,7 +97,8 @@ RUN wget https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tgz &&\
     export PATH=/opt/python/py37/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
-    rm ../Python-3.7.12.tgz
+    cd .. &&\
+    rm -rf Python-3.7.12*
 
 RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tgz &&\
     tar xvf Python-3.8.12.tgz &&\
@@ -87,7 +109,8 @@ RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tgz &&\
     export PATH=/opt/python/py38/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
-    rm ../Python-3.8.12.tgz 
+    cd .. &&\
+    rm -rf Python-3.8.12*
 
 RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     tar xvf Python-3.9.10.tgz &&\
@@ -98,7 +121,8 @@ RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     export PATH=/opt/python/py39/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
-    rm ../Python-3.9.10.tgz
+    cd .. &&\
+    rm -rf Python-3.9.10*
 
 
 RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
@@ -110,11 +134,8 @@ RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
     export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
-    rm ../Python-3.10.2.tgz
-
-
-
-
+    cd .. &&\
+    rm -rf Python-3.10.2*
 
 RUN git clone https://github.com/Kitware/CMake/ &&\
     cd CMake &&\
@@ -134,23 +155,9 @@ RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/sr
     make -j 8 &&\
     make install &&\
     cd ../.. &&\
-    rm -rf CMake-hdf5-1.12.1
+    rm -rf CMake-hdf5-1.12.1*
 
 
-RUN apt-get install -y gfortran &&\
-    apt-get install -y libbz2-dev &&\
-    apt-get install -y liblzma-dev &&\
-    apt-get install -y libpcre++-dev &&\
-    apt-get install -y texlive-latex-base &&\
-    apt-get install -y libcurl4-openssl-dev &&\
-    export JAVA_HOME="/opt/java/jre/" &&\
-    export PATH=$PATH:$JAVA_HOME/bin &&\
 
-RUN wget https://cran.r-project.org/src/base/R-4/R-4.2.0.tar.gz &&\
-    tar -xvf R-4.2.0.tar.gz &&\
-    cd R-4.2.0 &&\
-    ./configure --with-readline=no -with-x=no --with-pcre1 &&\
-    make &&\
-    make install
 
 
