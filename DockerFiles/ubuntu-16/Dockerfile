@@ -48,7 +48,7 @@ RUN apt-get install -y gfortran &&\
     apt-get install -y libbz2-dev &&\
     apt-get install -y liblzma-dev &&\
     apt-get install -y libpcre++-dev &&\
-    apt-get install -y texlive-latex-base &&\
+    apt-get install -y texlive-latex-extra &&\
     apt-get install -y libcurl4-openssl-dev &&\
     export JAVA_HOME="/opt/java/jre/" &&\
     export PATH=$PATH:$JAVA_HOME/bin
