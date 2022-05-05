@@ -56,7 +56,7 @@ RUN apt-get install -y gfortran &&\
 RUN wget https://cran.r-project.org/src/base/R-4/R-4.2.0.tar.gz &&\
     tar -xvf R-4.2.0.tar.gz &&\
     cd R-4.2.0 &&\
-    ./configure --with-readline=no -with-x=no --with-pcre1 &&\
+    ./configure --with-readline=no -with-x=no --with-pcre1 --enable-R-shlib &&\
     make &&\
     make install &&\
     cd .. &&\
