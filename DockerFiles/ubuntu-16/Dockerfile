@@ -72,6 +72,7 @@ RUN wget https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz &&\
     export PATH=/opt/python/py35/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.5.10*
 
@@ -85,6 +86,7 @@ RUN wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz &&\
     python3 -m pip install --upgrade pip &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.6.15*
 
@@ -97,6 +99,7 @@ RUN wget https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tgz &&\
     export PATH=/opt/python/py37/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.7.12*
 
@@ -109,6 +112,7 @@ RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tgz &&\
     export PATH=/opt/python/py38/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.8.12*
 
@@ -121,6 +125,7 @@ RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     export PATH=/opt/python/py39/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.9.10*
 
@@ -134,6 +139,7 @@ RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
     export PATH=/opt/python/py310/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.10.2*
 
