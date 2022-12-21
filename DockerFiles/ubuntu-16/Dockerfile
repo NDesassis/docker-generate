@@ -147,7 +147,7 @@ RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
 RUN wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz &&\
     tar xvf Python-3.11.1.tgz &&\
     cd Python-3.11.1 &&\
-    ./configure --prefix=/opt/python/py310/ --with-openssl=/usr/openssl --with-openssl-rpath=/usr/openssl/lib&&\
+    ./configure --prefix=/opt/python/py311/ --with-openssl=/usr/openssl --with-openssl-rpath=/usr/openssl/lib&&\
     make -j 8 &&\
     make install &&\
     export PATH=/opt/python/py311/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
