@@ -142,6 +142,21 @@ RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
     python3 -m pip install numpy &&\
     cd .. &&\
     rm -rf Python-3.10.2*
+    
+
+RUN wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz &&\
+    tar xvf Python-3.11.1.tgz &&\
+    cd Python-3.11.1 &&\
+    ./configure --prefix=/opt/python/py310/ --with-openssl=/usr/openssl --with-openssl-rpath=/usr/openssl/lib&&\
+    make -j 8 &&\
+    make install &&\
+    export PATH=/opt/python/py311/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin &&\
+    python3 -m pip install twine &&\
+    python3 -m pip install wheel &&\
+    python3 -m pip install numpy &&\
+    cd .. &&\
+    rm -rf Python-3.11.1*
+    
 
 RUN git clone https://github.com/Kitware/CMake/ &&\
     cd CMake &&\
