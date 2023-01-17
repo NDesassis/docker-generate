@@ -73,7 +73,6 @@ RUN wget https://www.python.org/ftp/python/3.5.10/Python-3.5.10.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.5.10*
 
@@ -88,7 +87,6 @@ RUN wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.6.15*
 
@@ -102,7 +100,6 @@ RUN wget https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.7.12*
 
@@ -116,7 +113,6 @@ RUN wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.8.12*
 
@@ -130,7 +126,6 @@ RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.9.10*
 
@@ -145,7 +140,6 @@ RUN wget https://www.python.org/ftp/python/3.10.2/Python-3.10.2.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.10.2*
     
@@ -160,7 +154,6 @@ RUN wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz &&\
     python3 -m pip install twine &&\
     python3 -m pip install wheel &&\
     python3 -m pip install numpy &&\
-    python3 -m pip install pandas &&\
     cd .. &&\
     rm -rf Python-3.11.1*
     
